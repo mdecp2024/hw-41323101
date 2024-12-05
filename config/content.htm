@@ -57,7 +57,8 @@
 <p><iframe allowfullscreen="allowfullscreen" height="314" src='//www.youtube.com/embed/rEnjoOjjYbA?si=Ekg0O87LCZ_JwMet" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;' width="560"></iframe><img alt="" src="/images/index.html"/></p>
 <p>在程式中，圓形的邊界是通過數學公式判斷的，因此，如何精確地定義圓形的範圍非常重要。當設置不同的圓心或半徑時，可能會需要調整邏輯來確保圓形能正確顯示。</p>
 <p>使用 Brython 在網頁上展示 Python 程式設計是非常有趣且具有挑戰性的。可以在網頁中實現更多功能，並會發現網頁開發中的一些技巧和細節，這對編程能力的提升非常有幫助。</p>
-<p></p><h3>w12_hw</h3>
+<p></p>
+<h3>w12_hw</h3>
 <p><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/f4f33e6df6288a8409e64c214f332243/raw/f8ff4bdd587e1ca33afdfa4a27b60dea40b5a6a1/w12">w12_1</a></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src='//www.youtube.com/embed/BztnnKtJIsw?si=zfj4bYMyzw9cuACB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;' width="560"></iframe></p>
 <p><span>這次作業不僅提升了我的 Python 編程能力，還增強了我對網頁開發技術的理解。通過將 JupyterLab 中的 Python 程式碼轉換為可在 Brython 上運行的代碼，我學到了如何設計交互式應用，並熟悉了如何將程式碼嵌入到現代網頁中。</span></p>
@@ -139,7 +140,40 @@ del house
 
 # 嘗試輸出會引發錯誤，因為 house 列表已被刪除
 print (house) # NameError: name 'house' is not</pre>
-<p><br/><br/></p><h1>HW 2</h1>
+<p></p>
+<h2>w13</h2>
+<h3>w13_hw</h3>
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!--啟動Brython-->
+<p>
+<script>
+-window.onload=function(){
+brython({debug:1,pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python">
+from browser import html
+from browser import document as doc
+canvas = html.CANVAS(width=400,height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ctx=canvas.getContext("2d")
+
+ctx.lineWidth = 1
+ctx.strokeStyle =  'blue'
+ctx.beginPath()
+ctx.moveTo(10,10)
+ctx.lineTo(100,100)
+ctx.stroke()
+</script>
+</p>
+<h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
