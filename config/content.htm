@@ -62,8 +62,16 @@
 <p><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/f4f33e6df6288a8409e64c214f332243/raw/f8ff4bdd587e1ca33afdfa4a27b60dea40b5a6a1/w12">w12_1</a></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src='//www.youtube.com/embed/BztnnKtJIsw?si=zfj4bYMyzw9cuACB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;' width="560"></iframe></p>
 <p><span>這次作業不僅提升了我的 Python 編程能力，還增強了我對網頁開發技術的理解。通過將 JupyterLab 中的 Python 程式碼轉換為可在 Brython 上運行的代碼，我學到了如何設計交互式應用，並熟悉了如何將程式碼嵌入到現代網頁中。</span></p>
+<p><span></span></p>
 <p><span>第六題:06_list_slicing</span></p>
 <p><span>範例程式:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/b801d502a8116ba25d214ef10034bcc4/raw/6c9588b9961a72d347a0092d9c68a536499547e1/w12%252006_list_slicing">城市</a></span></p>
+<p><span></span></p>
+<p>根據索引選取單個或多個元素。</p>
+<p>設定步長來篩選間隔元素。</p>
+<p>使用負數索引來倒序選取元素。</p>
+<p>反轉整個列表。</p>
+<p></p>
+<p></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">cities = ["San Diego", "Prague", "Cape Town", "Tokyo", "Melbourne"]
 print(cities) # 輸出所有城市
 print(cities[1]) # 輸出索引 1 的城市
@@ -81,6 +89,7 @@ print(cities[-4:-1]) # 切片：從倒數第 4 個到倒數第 2 個（不包含
 print(cities[3:0:-1]) # 從索引 3 到 1（不包含索引 0）
 print(cities[-2:-5:-1]) # 從倒數第 2 個到倒數第 5 個
 print(cities[::-1]) # 將整個列表反轉</pre>
+<p><span></span></p>
 <p><span>第七題:07_list_slicing_use</span></p>
 <p><span>範例程式:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/0942ce6652e125fcbd4ff63e75ce3ee1/raw/fba5759b043cc79774f9e8449da288683250cde8/w12%252007_list_slicing_use">列表操作</a></span></p>
 <p>列表操作（例如合併和插入元素）允許靈活地修改列表內容。</p>
@@ -140,12 +149,12 @@ del house
 
 # 嘗試輸出會引發錯誤，因為 house 列表已被刪除
 print (house) # NameError: name 'house' is not</pre>
+<p><span></span></p>
 <p><span>第八題:08_for_range</span></p>
 <p><span>範例程式:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/b215a228263334e0904c318e6ba7f919/raw/6ec4276ec1b216749a433ed83a145f937b36a896/w12%252008_for_range">配對朋友和食物</a></span></p>
 <p>動態處理更大範圍的清單。</p>
 <p>增加錯誤處理（如清單長度不一致）。</p>
 <p>整合更靈活的字串處理方式（如使用 <code>zip</code> 或 <code>f-string</code>）。</p>
-<p></p>
 <p></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義朋友的名字
 friends = ["Geetha", "Luca", "Daisy", "Juhan"]
@@ -175,11 +184,13 @@ print ("dish: " + dishes[index])
 # 配對朋友和食物並打印
 for index in range (0,4):
 print ("My friend " + friends[index] + "'s favorite dish is " + dishes[index])</pre>
+<p><span></span></p>
 <p><span>第九題:09_for_loop_if_equals</span></p>
 <p><span>範例程式:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/42aede87f76e9a781c6649dc98cd7a94/raw/f1e678a69d376a46534cc2759b7cc48ce06c0a6a/w12%252009_for_loop_if_equals">動物</a></span></p>
 <p>動物清單： 程式列出所有動物及其位置。</p>
 <p>特定條件判斷： 當觀察到目標動物時，輸出特別的訊息，強調目標。</p>
 <p>靈活性： 清單和 <code>wanted_to_see</code> 都可以改變，程式可適應新的資料。</p>
+<p></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義動物清單
 animals = ["giraffe", "penguin", "dolphin"]
 
@@ -206,7 +217,76 @@ print ("I saw a " + animals[i] + " and I really wanted to see it!") # 輸出：I
 else:
 # just print out that you saw it
 print ("I saw a " + animals[i]) # 輸出：I saw a &lt;動物&gt;</pre>
-<p><br/><br/></p>
+<p></p>
+<p></p>
+<p><span>第十題:10_for_search</span></p>
+<p><span>範例程式:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/8f09d16d0d158e344af8214c32e94b15/raw/d61a026a183d6ab9add9a8634e1c961cd64c97b9/w12%252010_for_search">配件的名稱長度</a></span></p>
+<p>清單遍歷與條件篩選： 通過 <code>for</code> 迴圈遍歷配件清單，並使用條件語句來過濾出長度為特定數字的配件，或者根據位置篩選出符合條件的配件。</p>
+<p>動態條件設定： 使用變數設定閾值（如長度或位置），使得程式在不同情況下可靈活運作。</p>
+<p></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 輸出每個配件的名稱及其位置
+accessories = ["belt", "hat", "gloves", "sunglasses", "ring"] # 列印每個配件的名稱以及它在清單中的位置
+print (accessories)
+# for each position in the list
+for i in range (len(accessories)):
+#print each elements and its position
+print ("The element " + accessories[i] + " is in position " + str(i))
+
+# 輸出長度為 6 的配件
+# for each position in the list
+for i in range (len(accessories)):
+# if the length of the element equals 6
+if len(accessories[i]) == 6:
+# print the element, its position, and its number of characters
+print ("The element " + accessories[i] + " is in position " + str(i) + " and it has 6 characters")
+
+# 輸出長度小於 6 的配件
+# for each position in the list
+for i in range (len(accessories)):
+# if the length of the element is less than 6
+if len(accessories[i]) &lt; 6:
+# print the element, its position, and its number of characters
+print ("The element " + accessories[i] + " is in position " + str(i) + " and it has less than 6 characters")
+# defining the threshold
+
+# 輸出長度大於設定閾值 6 的配件
+n_of_characters = 6
+# for each position in the list
+for i in range (len(accessories)):
+# if the length of the element is greater than the threshold
+if len(accessories[i]) &gt; n_of_characters:
+# print the element, its position, and its number of characters
+print ("The element " + accessories[i] + " is in position " + str(i) + " and it has more than " + str(n_of_characters) + " characters")
+# defining the threshold
+
+# 輸出長度不等於設定閾值的配件
+n_of_characters = 6
+# for each position in the list
+for i in range (len(accessories)):
+# if the length of the element is not equal to the threshold
+if len(accessories[i]) != n_of_characters:
+# print the element, its position, and its number of characters
+print ("The element " + accessories[i] + " is in position " + str(i) + " and it has a number of characters different from " + str(n_of_characters))
+# defining the threshold
+
+# 輸出位置小於或等於指定位置 2 的配件
+position = 2
+# for each position in the list
+for i in range (len(accessories)):
+# if the position of the element is less then or equal to to the threshold
+if i &lt;= position:
+# print the element, its position, and its position characteristic
+print ("The element " + accessories[i] + " is in position " + str(i) + ", which is less than or equal to " + str(position))
+# defining the threshold
+
+# 輸出位置大於或等於指定位置 2 的配件
+position = 2
+# for each position in the list
+for i in range (len(accessories)):
+# if the position of the element is greater then or equal to to the threshold
+if i &gt;= position:
+# print the element, its position, and its position characteristic
+print ("The element " + accessories[i] + " is in position " + str(i) + ", which is at least " + str(position))</pre>
 <p><br/><br/></p><h2>w13</h2>
 <h3>w13_hw</h3>
 <p>作業一</p>
@@ -228,7 +308,7 @@ brython({debug:1,pythonpath:['/static/','./../downloads/py/']});
 &lt;script type="text/python"&gt;// &lt;![CDATA[</pre>
 <p>作業二</p>
 <p>程式:</p>
-<p>&lt;!-- 啟動 Brython --&gt;<br/>&lt;p&gt;<br/>&lt;script&gt;<br/>window.onload=function(){<br/>brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});<br/>}<br/>&lt;/script&gt;<br/>&lt;script type="text/python3"&gt;<br/>from browser import html<br>from browser import document as doc</br></p>
+<p>&lt;!-- 啟動 Brython --&gt;<br/>&lt;p&gt;<br/>&lt;script&gt;<br/>window.onload=function(){<br/>brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});<br/>}<br/>&lt;/script&gt;<br/>&lt;script type="text/python3"&gt;<br/>from browser import html<br/>from browser import document as doc</p>
 <p># 利用 html 建立 canvas 超文件物件<br/>canvas = html.CANVAS(width=400, height=400)<br/>brython_div = doc["brython_div1"]<br/>brython_div &lt;= canvas</p>
 <p>ctx = canvas.getContext("2d")<br/>ctx.lineWidth = 1</p>
 <p># 繪製兩個矩形<br/>ctx.strokeStyle = 'red' # 設定矩形顏色為紅色<br/>ctx.beginPath() <br/>ctx.rect(10, 10, 200, 200)<br/>ctx.rect(110, 110, 200, 200)<br/>ctx.stroke()</p>
