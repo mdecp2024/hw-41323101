@@ -142,11 +142,58 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w13 << <a href='w13.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w13_hw</h1>
+<p>作業一</p>
+<p>程式:</p>
+<pre>&lt;p&gt;
+&lt;script src="./../cmsimde/static/brython.js"&gt;&lt;/script&gt;
+&lt;script src="./../cmsimde/static/brython_stdlib.js"&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;!--啟動Brython--&gt;
+&lt;p&gt;
+&lt;script&gt;// &lt;![CDATA[
+-window.onload=function(){
+brython({debug:1,pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+// ]]&gt;&lt;/script&gt;
+&lt;/p&gt;
+&lt;div id="brython_div1"&gt;&lt;/div&gt;
+&lt;p&gt;
+&lt;script type="text/python"&gt;// &lt;![CDATA[</pre>
+<p>作業二</p>
+<p>程式:</p>
+<p>&lt;!-- 啟動 Brython --&gt;<br/>&lt;p&gt;<br/>&lt;script&gt;<br/>window.onload=function(){<br/>brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});<br/>}<br/>&lt;/script&gt;<br/>&lt;script type="text/python3"&gt;<br/>from browser import html<br/>from browser import document as doc</p>
+<p># 利用 html 建立 canvas 超文件物件<br/>canvas = html.CANVAS(width=400, height=400)<br/>brython_div = doc["brython_div1"]<br/>brython_div &lt;= canvas</p>
+<p>ctx = canvas.getContext("2d")<br/>ctx.lineWidth = 1</p>
+<p># 繪製兩個矩形<br/>ctx.strokeStyle = 'red' # 設定矩形顏色為紅色<br/>ctx.beginPath() <br/>ctx.rect(10, 10, 200, 200)<br/>ctx.rect(110, 110, 200, 200)<br/>ctx.stroke()</p>
+<p>作業三</p>
+<p>程式:</p>
+<p>&lt;!-- 啟動 Brython --&gt;<br/>&lt;p&gt;<br/>&lt;script&gt;<br/>window.onload=function(){<br/>brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});<br/>}<br/>&lt;/script&gt;<br/>&lt;script type="text/python3"&gt;<br/>from browser import html<br/>from browser import document as doc</p>
+<p># 利用 html 建立 canvas 超文件物件<br/>canvas = html.CANVAS(width=600, height=600) # 調整畫布大小以容納圓形<br/>brython_div = doc["brython_div1"]<br/>brython_div &lt;= canvas</p>
+<p>ctx = canvas.getContext("2d")<br/>ctx.lineWidth = 1</p>
+<p># 1. 繪製兩個矩形 (紅色邊框)<br/>ctx.strokeStyle = 'red' # 設定矩形的邊框顏色為紅色<br/>ctx.beginPath()<br/>ctx.rect(100, 100, 200, 200) # 第一個正方形的左上角在(100, 100)，邊長200<br/>ctx.rect(200, 200, 200, 200) # 第二個正方形的左上角在(200, 200)，邊長200<br/>ctx.stroke()</p>
+<p># 2. 繪製對角線 (藍色) - 只連接第一個矩形的左上角和第一個矩形的右下角<br/>ctx.strokeStyle = 'blue' # 設定對角線顏色為藍色<br/>ctx.beginPath()<br/>ctx.moveTo(100, 100) # 起點為第一個矩形的左上角 (100, 100)<br/>ctx.lineTo(300, 300) # 終點為第一個矩形的右下角 (300, 300)<br/>ctx.stroke()</p>
+<p># 3. 繪製兩個外切圓 (黑色)<br/>ctx.strokeStyle = 'black' # 設定圓的顏色為黑色</p>
+<p># 第一個矩形的外切圓<br/>ctx.beginPath()<br/>ctx.arc(200, 200, 141.4, 0, 2 * 3.14) # 圓心在(200, 200)，半徑為141.4（sqrt(2) * 邊長的一半）<br/>ctx.stroke()</p>
+<p># 第二個矩形的外切圓<br/>ctx.beginPath()<br/>ctx.arc(300, 300, 141.4, 0, 2 * 3.14) # 圓心在(300, 300)，半徑為141.4<br/>ctx.stroke()</p>
+<p>作業四</p>
+<p><span>在下列圖形中的兩個正方形外圍, 以黑色畫筆畫圓, 並設法在各線條所圍成的封閉區域塗上不同顏色</span></p>
+<p>程式:</p>
+<p>&lt;div id="brython_div1"&gt;&lt;/div&gt;</p>
+<p>&lt;script&gt;<br/>window.onload = function () {<br/> brython({ debug: 1, pythonpath: ['./../cmsimde/static/', './../downloads/py/'] });<br/>}<br/>&lt;/script&gt;<br/>&lt;script type="text/python3"&gt;<br/>from browser import html<br/>from browser import document as doc<br/>import math</p>
+<p># 建立 canvas 元素<br/>canvas = html.CANVAS(width=600, height=600)<br/>brython_div = doc["brython_div1"]<br/>brython_div &lt;= canvas</p>
+<p>ctx = canvas.getContext("2d")<br/>ctx.lineWidth = 1</p>
+<p># 矩形參數<br/>rect_size = 200<br/>rect1_top_left = (100, 100) # 第一個矩形左上角座標<br/>rect2_top_left = (200, 200) # 第二個矩形左上角座標</p>
+<p># 繪製並填充第一個矩形<br/>ctx.fillStyle = "rgba(255, 200, 200, 0.5)" # 半透明紅色填充<br/>ctx.beginPath()<br/>ctx.rect(rect1_top_left[0], rect1_top_left[1], rect_size, rect_size)<br/>ctx.fill()<br/>ctx.strokeStyle = 'red'<br/>ctx.stroke()</p>
+<p># 繪製並填充第二個矩形<br/>ctx.fillStyle = "rgba(200, 255, 200, 0.5)" # 半透明綠色填充<br/>ctx.beginPath()<br/>ctx.rect(rect2_top_left[0], rect2_top_left[1], rect_size, rect_size)<br/>ctx.fill()<br/>ctx.strokeStyle = 'red'<br/>ctx.stroke()</p>
+<p># 繪製第一個矩形的對角線 (藍色)<br/>ctx.strokeStyle = 'blue'<br/>ctx.beginPath()<br/>ctx.moveTo(rect1_top_left[0], rect1_top_left[1]) # 起點：左上角<br/>ctx.lineTo(rect1_top_left[0] + rect_size, rect1_top_left[1] + rect_size) # 終點：右下角<br/>ctx.stroke()</p>
+<p># 計算外切圓參數<br/>radius = math.sqrt(2) * (rect_size / 2) # 半徑為 sqrt(2) * (矩形邊長的一半)<br/>circle1_center = (rect1_top_left[0] + rect_size / 2, rect1_top_left[1] + rect_size / 2) # 第一個圓心<br/>circle2_center = (rect2_top_left[0] + rect_size / 2, rect2_top_left[1] + rect_size / 2) # 第二個圓心</p>
+<p># 繪製並填充第一個外切圓<br/>ctx.fillStyle = "rgba(200, 200, 255, 0.5)" # 半透明藍色填充<br/>ctx.beginPath()<br/>ctx.arc(circle1_center[0], circle1_center[1], radius, 0, 2 * math.pi)<br/>ctx.fill()<br/>ctx.strokeStyle = 'black'<br/>ctx.stroke()</p>
+<p># 繪製並填充第二個外切圓<br/>ctx.fillStyle = "rgba(255, 255, 200, 0.5)" # 半透明黃色填充<br/>ctx.beginPath()<br/>ctx.arc(circle2_center[0], circle2_center[1], radius, 0, 2 * math.pi)<br/>ctx.fill()<br/>ctx.strokeStyle = 'black'<br/>ctx.stroke()<br/>&lt;/script&gt;</p>
 <p>
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
 </p>
-<!--啟動Brython-->
+<pre><!--啟動Brython--></pre>
 <p>
 <script>
 -window.onload=function(){
@@ -154,7 +201,7 @@ brython({debug:1,pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
 </p>
-<div id="brython_div1"></div>
+<div id="brython_div1">
 <p>
 <script type="text/python">
 from browser import html
@@ -172,6 +219,163 @@ ctx.lineTo(100,100)
 ctx.stroke()
 </script>
 </p>
+</div>
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<pre><!--啟動Brython--></pre>
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+
+# 繪製兩個矩形
+ctx.strokeStyle = 'red'  # 設定矩形顏色為紅色
+ctx.beginPath() 
+ctx.rect(10, 10, 200, 200)
+ctx.rect(110, 110, 200, 200)
+ctx.stroke()
+
+# 繪製對角線，顏色設定為藍色
+ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
+ctx.beginPath() 
+ctx.moveTo(10, 10)
+ctx.lineTo(210, 210)
+ctx.stroke()
+</script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=600, height=600)  # 調整畫布大小以容納圓形
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+
+# 1. 繪製兩個矩形 (紅色邊框)
+ctx.strokeStyle = 'red'  # 設定矩形的邊框顏色為紅色
+ctx.beginPath()
+ctx.rect(100, 100, 200, 200)  # 第一個正方形的左上角在(100, 100)，邊長200
+ctx.rect(200, 200, 200, 200)  # 第二個正方形的左上角在(200, 200)，邊長200
+ctx.stroke()
+
+# 2. 繪製對角線 (藍色) - 只連接第一個矩形的左上角和第一個矩形的右下角
+ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
+ctx.beginPath()
+ctx.moveTo(100, 100)  # 起點為第一個矩形的左上角 (100, 100)
+ctx.lineTo(300, 300)  # 終點為第一個矩形的右下角 (300, 300)
+ctx.stroke()
+
+# 3. 繪製兩個外切圓 (黑色)
+ctx.strokeStyle = 'black'  # 設定圓的顏色為黑色
+
+# 第一個矩形的外切圓
+ctx.beginPath()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)  # 圓心在(200, 200)，半徑為141.4（sqrt(2) * 邊長的一半）
+ctx.stroke()
+
+# 第二個矩形的外切圓
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)  # 圓心在(300, 300)，半徑為141.4
+ctx.stroke()
+</script>
+</p>
+<div id="brython_div1"><iframe allowfullscreen="allowfullscreen" height="314" src='//www.youtube.com/embed/xcnGEl8l1kw?si=Do3liHJfnJPWO354" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;' width="560"></iframe></div>
+<div></div>
+<div>心得:</div>
+<div><span>HTML5 的 Canvas API 提供了一個靈活的 2D 繪圖工具，可以實現圖形、路徑填充與動畫。但 API 本身有一定的學習曲線，例如理解 <code>arc()</code>、<code>rect()</code> 等方法的參數。這個範例結合了編程、數學和視覺設計的技巧，是一個很好的學習範例。不僅能加深對 Canvas API 的理解，還可以學習如何用程式碼創建清晰的幾何圖形。當然，也讓人意識到程式中的細節處理是成功完成一個視覺效果的關鍵。</span></div>
+<script>
+window.onload = function () {
+    brython({ debug: 1, pythonpath: ['./../cmsimde/static/', './../downloads/py/'] });
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+import math
+
+# 建立 canvas 元素
+canvas = html.CANVAS(width=600, height=600)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+
+# 矩形參數
+rect_size = 200
+rect1_top_left = (100, 100)  # 第一個矩形左上角座標
+rect2_top_left = (200, 200)  # 第二個矩形左上角座標
+
+# 繪製並填充第一個矩形
+ctx.fillStyle = "rgba(255, 200, 200, 0.5)"  # 半透明紅色填充
+ctx.beginPath()
+ctx.rect(rect1_top_left[0], rect1_top_left[1], rect_size, rect_size)
+ctx.fill()
+ctx.strokeStyle = 'red'
+ctx.stroke()
+
+# 繪製並填充第二個矩形
+ctx.fillStyle = "rgba(200, 255, 200, 0.5)"  # 半透明綠色填充
+ctx.beginPath()
+ctx.rect(rect2_top_left[0], rect2_top_left[1], rect_size, rect_size)
+ctx.fill()
+ctx.strokeStyle = 'red'
+ctx.stroke()
+
+# 繪製第一個矩形的對角線 (藍色)
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(rect1_top_left[0], rect1_top_left[1])  # 起點：左上角
+ctx.lineTo(rect1_top_left[0] + rect_size, rect1_top_left[1] + rect_size)  # 終點：右下角
+ctx.stroke()
+
+# 計算外切圓參數
+radius = math.sqrt(2) * (rect_size / 2)  # 半徑為 sqrt(2) * (矩形邊長的一半)
+circle1_center = (rect1_top_left[0] + rect_size / 2, rect1_top_left[1] + rect_size / 2)  # 第一個圓心
+circle2_center = (rect2_top_left[0] + rect_size / 2, rect2_top_left[1] + rect_size / 2)  # 第二個圓心
+
+# 繪製並填充第一個外切圓
+ctx.fillStyle = "rgba(200, 200, 255, 0.5)"  # 半透明藍色填充
+ctx.beginPath()
+ctx.arc(circle1_center[0], circle1_center[1], radius, 0, 2 * math.pi)
+ctx.fill()
+ctx.strokeStyle = 'black'
+ctx.stroke()
+
+# 繪製並填充第二個外切圓
+ctx.fillStyle = "rgba(255, 255, 200, 0.5)"  # 半透明黃色填充
+ctx.beginPath()
+ctx.arc(circle2_center[0], circle2_center[1], radius, 0, 2 * math.pi)
+ctx.fill()
+ctx.strokeStyle = 'black'
+ctx.stroke()
+</script>
 <br />w13 << <a href='w13.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
