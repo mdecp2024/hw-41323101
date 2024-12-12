@@ -142,7 +142,78 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w14_hw</h1>
-</div>
+<p><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/d163b1f80381460951b9c54e7b74360f/raw/33c5c724b455a301057438011765c62209a25d25/w14">程式</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import random
+
+# 定義一個函式來初始化畫布
+def initialize_canvas(canvas_width=400, canvas_height=400, id="brython_div1"):
+canvas = html.CANVAS(width=canvas_width, height=canvas_height)
+brython_div = doc[id]
+brython_div &lt;= canvas
+ctx = canvas.getContext("2d")
+return canvas, ctx
+
+# 定義一個隨機顏色生成函式
+def random_color_generator():
+r = random.randint(0, 255)
+g = random.randint(0, 255)
+b = random.randint(0, 255)
+return f"rgb({r}, {g}, {b})"
+
+# 判斷點是否在圓內
+def is_point_in_circle(px, py, cx, cy, r):
+return (px - cx) ** 2 + (py - cy) ** 2 &lt;= r ** 2
+
+# 繪製三個圓並填充區域
+def draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3):
+canvas, ctx = initialize_canvas(400, 400)
+ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+# 顏色區域存儲字典
+color_dict = {}
+
+for py in range(0, canvas.height):
+for px in range(0, canvas.width):
+# 判斷點是否在每個圓內
+in_circle1 = is_point_in_circle(px, py, x1, y1, r1)
+in_circle2 = is_point_in_circle(px, py, x2, y2, r2)
+in_circle3 = is_point_in_circle(px, py, x3, y3, r3)
+
+# 確定區域類型
+if in_circle1 and in_circle2 and in_circle3:
+region = "intersection_all"
+elif in_circle1 and in_circle2:
+region = "intersection_1_2"
+elif in_circle1 and in_circle3:
+region = "intersection_1_3"
+elif in_circle2 and in_circle3:
+region = "intersection_2_3"
+elif in_circle1:
+region = "circle1"
+elif in_circle2:
+region = "circle2"
+elif in_circle3:
+region = "circle3"
+else:
+region = "background"
+
+# 分配顏色
+if region not in color_dict:
+color_dict[region] = random_color_generator() if region != "background" else "white"
+
+ctx.fillStyle = color_dict[region]
+ctx.fillRect(px, py, 1, 1)
+
+# 設定三個圓的參數
+x1, y1, r1 = 150, 200, 100
+x2, y2, r2 = 250, 200, 100
+x3, y3, r3 = 200, 300, 100
+
+# 繪製三個圓並填充
+draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)</pre>
+<p><br/><br/></p>
 <p>
 <script type="text/python3">
 from browser import html
@@ -269,8 +340,7 @@ ctx.moveTo(60, 60)
 ctx.lineTo(260, 260)
 ctx.stroke()
 </script>
-</p>
-<br />w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
+</p><br />w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
