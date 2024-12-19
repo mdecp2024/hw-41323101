@@ -142,7 +142,24 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w14_hw << <a href='w14_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15_hw</h1>
-<p>題目一:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/b7010044cb0e3002fb780cfe57d4a3f2/raw/3baf2cfdd0afc56cd7c714490ee3deb0b6af7cfa/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25B8%2580">從 1 累加到 100</a><br/><br/></p>
+<p><span style="background-color: #ffff99;">題目一:</span><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/b7010044cb0e3002fb780cfe57d4a3f2/raw/3baf2cfdd0afc56cd7c714490ee3deb0b6af7cfa/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25B8%2580">從 1 累加到 100</a></p>
+<p><strong>設計思考：</strong></p>
+<pre>設計一個函式來計算從 <code>init</code> 到 <code>upto</code> 的整數總和。<br/><br/>使用 <code>for</code> 迴圈遍歷從 <code>init</code> 到 <code>upto</code> 的數字，並將這些數字累加起來。</pre>
+<p><strong>執行過程：</strong></p>
+<ol>
+<li>
+<pre><strong>初始化變數</strong>：首先設置累加變數 <code>sum = 0</code>，並定義 <code>init</code> 和 <code>upto</code> 的值（例如，<code>init = 1</code> 和 <code>upto = 100</code>）。</pre>
+</li>
+<li>
+<pre><strong>使用 <code>for</code> 迴圈</strong>：<code>for i in range(init, upto + 1)</code> 用來遍歷從 <code>init</code> 到 <code>upto</code>（包含 <code>upto</code>）的所有數字。</pre>
+</li>
+<li>
+<pre><strong>執行累加</strong>：在迴圈內，將每個數字加到 <code>sum</code> 中，這可以通過 <code>sum = sum + i</code> 完成。</pre>
+</li>
+<li>
+<pre><strong>輸出結果</strong>：最後，將結果以格式化字符串的方式輸出。</pre>
+</li>
+</ol>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># sum 初始值設為 0
 sum = 0
 init = 1
@@ -151,7 +168,60 @@ upto = 100
 for i in range(init, upto+1):
 sum = sum + i
 print("從" + str(init) + "累加到" + str(upto) + "=" + str(sum))</pre>
-<p><br/><span>題目二:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/1377b99e425bfc5e07be7953c7169d48/raw/e36664ff9b6eda7cf2e305e49fa9a5e6365144a6/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25BA%258C">addto</a></span></p>
+<p><strong>程式碼解釋：</strong></p>
+<ol>
+<li>
+<pre><code>sum = 0</code>：初始化 <code>sum</code> 變數為 0，用來儲存累加的總和。</pre>
+</li>
+<li>
+<pre><code>for i in range(init, upto + 1)</code>：這行程式使用 <code>range</code> 函式來生成一個從 <code>init</code> 到 <code>upto</code> 的數字範圍，並且 <code>range</code> 的結尾是 <code>upto+1</code>，以確保包含 <code>upto</code> 本身。</pre>
+</li>
+<li>
+<pre><code>sum = sum + i</code>：這行將每個遍歷到的數字加到 <code>sum</code> 中。</pre>
+</li>
+<li>
+<pre><code>print("從" + str(init) + "累加到" + str(upto) + "=" + str(sum))</code>：最終輸出累加的結果。</pre>
+</li>
+</ol>
+<p><strong>心得：</strong></p>
+<ul>
+<li>
+<pre>這段程式碼非常簡單，使用了 <code>for</code> 迴圈來完成累加。每次迴圈會將當前的數字加到總和中，最後輸出結果。</pre>
+</li>
+</ul>
+<p><strong></strong></p>
+<p><br/><span><span style="background-color: #ffff99;">題目二:</span><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/1377b99e425bfc5e07be7953c7169d48/raw/e36664ff9b6eda7cf2e305e49fa9a5e6365144a6/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25BA%258C">addto</a></span></p>
+<p><strong>設計思考：</strong></p>
+<pre>設計一個函式，計算從 <span>init </span>到 upto 的整數總和。<br/>使用 for 迴圈來遍歷 init 到 upto 之間的數字，並進行累加。將結果返回。</pre>
+<p><br/><strong>執行過程：</strong></p>
+<ul>
+<li>
+<p><strong>定義<span> </span><code>addto</code><span> </span>函式</strong>：</p>
+<ol>
+<li>
+<pre><code>sum = 0</code>：初始化累加總和為 0。</pre>
+</li>
+<li>
+<pre>使用 <code>for i in range(init, upto + 1)</code> 來遍歷範圍內的數字（包括 <code>upto</code>）。</pre>
+</li>
+<li>
+<pre>將每一個數字加到 <code>sum</code> 上。</pre>
+</li>
+<li>
+<pre>返回累加結果。</pre>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>呼叫 <code>addto</code> 並輸出結果</strong>：</p>
+<ol>
+<li>設定 <code>init = 1</code> 和 <code>upto = 100</code>。</li>
+<li>呼叫 <code>addto(init, upto)</code> 函式，並顯示結果。</li>
+</ol>
+</li>
+</ul>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 addto 函式
 def addto(init, upto):
 sum = 0
@@ -164,7 +234,59 @@ init = 1
 upto = 100
 result = addto(init, upto)
 print("從" + str(init) + "累加到" + str(upto) + "=" + str(result))</pre>
-<p><span>題目三:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/790a9bf56089db9c1db0e610a3623fa1/raw/31e6245b59e6ba7cecc0f8e84636b38a86f1c512/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25B8%2589">add_only_even</a></span><br/><br/></p>
+<p><strong>程式碼解釋：</strong></p>
+<ul>
+<li>
+<pre><code>sum = 0</code>：初始化 <code>sum</code>，用來儲存累加結果。</pre>
+</li>
+<li>
+<pre><code>for i in range(init, upto + 1)</code>：<code>range(init, upto + 1)</code> 會生成從 <code>init</code> 到 <code>upto</code> 的所有數字。<code>for</code> 迴圈會遍歷這些數字並執行累加。</pre>
+</li>
+<li>
+<pre><code>sum = sum + i</code>：每次循環，將當前數字 <code>i</code> 加到 <code>sum</code> 上。</pre>
+</li>
+<li>
+<pre><code>return sum</code>：返回累加後的結果。</pre>
+</li>
+</ul>
+<p><strong>心得：</strong></p>
+<p>程式簡單易懂，使用 <code>for</code> 迴圈順利解決問題。這是典型的數字累加問題，<code>range</code> 函式與 <code>sum</code> 累加過程很直觀。</p>
+<p></p>
+<p><span><span style="background-color: #ffff99;">題目三:</span><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/790a9bf56089db9c1db0e610a3623fa1/raw/31e6245b59e6ba7cecc0f8e84636b38a86f1c512/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25B8%2589">add_only_even</a></span><br/><br/></p>
+<p><strong>設計思考：</strong></p>
+<p>計算從 <code>init</code> 到 <code>upto</code> 之間所有偶數的總和。</p>
+<p>遍歷範圍內的每個數字，判斷是否為偶數。若是偶數，則加總。</p>
+<p><strong>執行過程：</strong></p>
+<ul>
+<li>
+<pre><strong>定義 <code>add_only_even</code> 函式</strong>：</pre>
+<ol>
+<li>
+<pre>初始化 <code>sum = 0</code>，用來儲存偶數的總和。</pre>
+</li>
+<li>
+<pre>遍歷範圍內的每個數字，使用 <code>if i % 2 == 0</code> 判斷是否為偶數。</pre>
+</li>
+<li>
+<pre>若是偶數，就將其加到 <code>sum</code> 中。</pre>
+</li>
+<li>
+<pre>返回累加後的結果。</pre>
+</li>
+</ol>
+</li>
+<li>
+<pre><strong>呼叫 <code>add_only_even</code> 並輸出結果</strong>：</pre>
+<ol>
+<li>
+<pre>設定 <code>init = 1</code> 和 <code>upto = 100</code>。</pre>
+</li>
+<li>
+<pre>呼叫 <code>add_only_even(init, upto)</code> 函式，並顯示結果</pre>
+</li>
+</ol>
+</li>
+</ul>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 add_only_even 函式
 def add_only_even(init, upto):
 sum = 0
@@ -178,7 +300,56 @@ init = 1
 upto = 100
 result = add_only_even(init, upto)
 print("從" + str(init) + "累加到" + str(upto) + "的偶數總和為=" + str(result))</pre>
-<p><br/><span>題目四:<a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/6725cd5b00b860d27a45c231d727f0ae/raw/e4a1f9b2163c998e9e922311fb48e02f11df4f60/w15%25E9%25A1%258C%25E7%259B%25AE%25E5%259B%259B">add_avoid_8</a></span></p>
+<p><strong>程式碼解釋：</strong></p>
+<ul>
+<li>
+<pre><code>if i % 2 == 0</code>：判斷 <code>i</code> 是否為偶數，若是則執行加法。</pre>
+</li>
+<li>
+<pre>其他部分與 <code>addto</code> 函式類似。</pre>
+</li>
+</ul>
+<p><strong>心得：</strong></p>
+<ul>
+<li>
+<pre>利用 <code>if i % 2 == 0</code> 判斷偶數非常直觀。程式簡單，且能夠有效過濾非偶數的數字。</pre>
+</li>
+</ul>
+<p><br/><span><span style="background-color: #ffff99;">題目四:</span><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/6725cd5b00b860d27a45c231d727f0ae/raw/e4a1f9b2163c998e9e922311fb48e02f11df4f60/w15%25E9%25A1%258C%25E7%259B%25AE%25E5%259B%259B">add_avoid_8</a></span></p>
+<p><strong>設計思考：</strong></p>
+<p>計算從 <code>init</code> 到 <code>upto</code> 之間的總和，但避開所有包含數字 <code>8</code> 的整數。</p>
+<p>將每個數字轉換為字串，判斷是否包含字符 <code>8</code>。如果包含，就跳過該數字。</p>
+<p><strong>執行過程：</strong></p>
+<ul>
+<li>
+<pre><strong>定義 <code>add_avoid_8</code> 函式</strong>：</pre>
+<ol>
+<li>
+<pre>初始化 <code>sum = 0</code>，用來儲存總和。</pre>
+</li>
+<li>
+<pre>遍歷範圍內的數字，將數字轉換為字串並檢查是否包含字符 <code>'8'</code>。</pre>
+</li>
+<li>
+<pre>若不包含 <code>8</code>，則進行累加。</pre>
+</li>
+<li>
+<pre>返回累加後的結果。</pre>
+</li>
+</ol>
+</li>
+<li>
+<pre><strong>呼叫 <code>add_avoid_8</code> 並輸出結果</strong>：</pre>
+<ol>
+<li>
+<pre>設定 <code>init = 1</code> 和 <code>upto = 100</code>。</pre>
+</li>
+<li>
+<pre>呼叫 <code>add_avoid_8(init, upto)</code> 函式，並顯示結果。</pre>
+</li>
+</ol>
+</li>
+</ul>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 add_avoid_8 函式
 def add_avoid_8(init, upto):
 sum = 0
@@ -192,6 +363,19 @@ init = 1
 upto = 100
 result = add_avoid_8(init, upto)
 print("從" + str(init) + "累加到" + str(upto) + "，避開包含 '8' 的數字，總和為=" + str(result))</pre>
+<p><strong>程式碼解釋：</strong></p>
+<ul>
+<li>
+<pre><code>if '8' not in str(i)</code>：將 <code>i</code> 轉換為字串，並檢查字串中是否包含字符 <code>'8'</code>。如果不包含，則進行累加。</pre>
+</li>
+<li>
+<pre>其他部分與 <code>addto</code> 函式類似。</pre>
+</li>
+</ul>
+<p><strong>心得：</strong></p>
+<ul>
+<li>使用字串方法判斷是否包含 <code>8</code>，這種方式簡單且有效，適用於這類過濾問題。</li>
+</ul>
 <p><br/><br/></p>
 <p>
 <script type="text/python3">
