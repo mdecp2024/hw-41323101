@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,23 +141,136 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Attendance.html'>Next</a> >> Attendance<br /><h1>About</h1>
-<p>國立虎尾科技大學機械設計工程系</p>
-<p>National Formosa University</p>
-<p>Department of Mechanical Design Engineering</p>
-<p>cp2024 計算機程式</p>
-<p>課程教材:</p>
-<p style="padding-left: 30px;"><a href="https://blog.jupyter.org/introducing-learn-python-with-jupyter-11214f152159">Learn Python with Jupyter</a> (<a href="https://www.learnpythonwithjupyter.com/">site</a>, <a href="https://localhost:9445/downloads/learn_python_with_jupyter.pdf">ebook</a>)</p>
-<p style="padding-left: 30px;">教育版帳號 microsoftonline 登入點: <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a></p>
-<p>Teams 線上教學:</p>
-<p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入 <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a> Office 365</p>
-<p style="padding-left: 30px;">Teams 團隊代碼: <span class="fui-Text ___vec8h90 fk6fouc f1pbo8a8 f1i3iumi figsok6 fpgzoln f1w7gpdv f6juhto f1mtd64y f1y7q3j9 f2jf649 foxqkq2" data-tid="join-team-code">ldodwua</span></p>
-<p>個人倉儲:<a href="https://github.com/mdecp2024/hw-41323101">https://github.com/mdecp2024/hw-41323101</a></p>
-<p>個人網站:<a href="https://mdecp2024.github.io/hw-41323101/content/index.html">https://mdecp2024.github.io/hw-41323101/content/index.html</a></p>
-<p>其他資訊:</p>
-<p style="padding-left: 30px;"><a href="./../downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<br /> <a href='Attendance.html'>Next</a> >> Attendance</div>
+    <div id="tipue_search_content">w14_hw << <a href='w14_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15_hw</h1>
+<p><br/><br/></p>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+import math
+ 
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ 
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 4
+ 
+# 混色模式設置（以確保透明效果）
+ctx.globalCompositeOperation = "source-over"
+ 
+# 黑邊圓 *2（每個畫四個邊）
+ctx.strokeStyle = 'black'
+# 第一個圓
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "#1E90FF"  # DodgerBlue
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "#FF4500"  # OrangeRed
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "#32CD32"  # LimeGreen
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "#FFFFE0"  # LightYellow
+ctx.fill()
+ctx.stroke()
+ 
+# 第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "#9400D3"  # DarkViolet
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "#808000"  # Olive
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "#FFA07A"  # LightSalmon
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "#FF1493"  # DeepPink
+ctx.fill()
+ctx.stroke()
+ 
+# 紅方形 *2（4個三角形）
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(60, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "#FFD700"  # Gold
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 60)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "#4B0082"  # Indigo
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(360, 160)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "#4682B4"  # SteelBlue
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 360)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "#ADFF2F"  # GreenYellow
+ctx.fill()
+ctx.stroke()
+ 
+# 重疊的小方形
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "#1E90FF"  # DodgerBlue
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(260, 160)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "#6A5ACD"  # SlateBlue
+ctx.fill()
+ctx.stroke()
+ 
+# 藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 260)
+ctx.stroke()
+</script>
+</p>
+<br />w14_hw << <a href='w14_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
