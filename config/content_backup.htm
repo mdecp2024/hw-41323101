@@ -896,6 +896,20 @@ print("從" + str(init) + "累加到" + str(upto) + "，避開包含 '8' 的數�
 <ul>
 <li>使用字串方法判斷是否包含 <code>8</code>，這種方式簡單且有效，適用於這類過濾問題。</li>
 </ul>
+<p><span><span style="background-color: #ffff99;">題目五:</span><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/058a41e9e78338d63bee15e7f3597488/raw/8de5eb1d3006c26de037a529253d0abf0e95030c/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25BA%2594">add_avoid_8_and_3 </a></span><br/><br/></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 add_avoid_8_and_3 函式
+def add_avoid_8_and_3(init, upto):
+sum = 0
+for i in range(init, upto + 1):
+if '8' not in str(i) and '3' not in str(i): # 判斷數字中是否包含 "8" 或 "3"
+sum = sum + i
+return sum
+
+# 呼叫函式並輸出結果
+init = 1
+upto = 100
+result = add_avoid_8_and_3(init, upto)
+print("從" + str(init) + "累加到" + str(upto) + "，避開包含 '8' 或 '3' 的數字，總和為=" + str(result))</pre>
 <p><br/><br/></p>
 <p>
 <script type="text/python3">
