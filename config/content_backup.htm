@@ -897,147 +897,136 @@ print("從" + str(init) + "累加到" + str(upto) + "，避開包含 '8' 的數�
 <li>使用字串方法判斷是否包含 <code>8</code>，這種方式簡單且有效，適用於這類過濾問題。</li>
 </ul>
 <p><span><span style="background-color: #ffff99;">題目五:</span><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/058a41e9e78338d63bee15e7f3597488/raw/8de5eb1d3006c26de037a529253d0abf0e95030c/w15%25E9%25A1%258C%25E7%259B%25AE%25E4%25BA%2594">add_avoid_8_and_3 </a></span><br/><br/></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 add_avoid_8_and_3 函式
-def add_avoid_8_and_3(init, upto):
-sum = 0
-for i in range(init, upto + 1):
-if '8' not in str(i) and '3' not in str(i): # 判斷數字中是否包含 "8" 或 "3"
-sum = sum + i
-return sum
-
-# 呼叫函式並輸出結果
-init = 1
-upto = 100
-result = add_avoid_8_and_3(init, upto)
-print("從" + str(init) + "累加到" + str(upto) + "，避開包含 '8' 或 '3' 的數字，總和為=" + str(result))</pre>
-<p><br/><br/></p>
+<!-- 導入 brython 程式庫 -->
 <p>
+<script src="/get_page/cmsimde/static/brython.js"></script>
+<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
 <script type="text/python3">
 from browser import html
 from browser import document as doc
-import math
- 
-canvas = html.CANVAS(width=500, height=500)
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js">
+</script>
+<!-- 畫布容器 --></p>
+<div id="brython_div1">
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/get_page/cmsimde/static/brython.js"></script>
+<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+canvas = html.CANVAS(width = 500, height = 300)
 brython_div = doc["brython_div1"]
 brython_div <= canvas
- 
+from browser import html
+from browser import document as doc
+
 ctx = canvas.getContext("2d")
-ctx.lineWidth = 4
- 
-# 混色模式設置（以確保透明效果）
-ctx.globalCompositeOperation = "source-over"
- 
-# 黑邊圓 *2（每個畫四個邊）
-ctx.strokeStyle = 'black'
-# 第一個圓
+
+ctx.lineWidth = 2
+ctx.strokeStyle = "black"
+
+# Draw X-axis line
 ctx.beginPath()
-ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "#1E90FF"  # DodgerBlue
+ctx.moveTo(31, 1)
+ctx.lineTo(88, 1)
+ctx.stroke()
+
+# Draw Y-axis line
+ctx.beginPath()
+ctx.moveTo(31, 1)
+ctx.lineTo(31, 95)
+ctx.stroke()
+
+# Set font and fill style for text
+ctx.font = "20px Arial"  # Set font
+ctx.fillStyle = "black"  # Set text color
+
+# Add "+X" label at (90, 25)
+ctx.fillText("+X", 90, 25)
+
+# Add "+Y" label at (20, 110)
+ctx.fillText("+Y", 20, 110)
+
+# Set font and fill style for the origin label
+ctx.font = "12px Arial"
+ctx.fillText("(31, 1)", 20, 20)  # Mark the origin coordinates
+
+# Set offset to (31, 1)
+x = 31
+y = 1
+
+# Draw orange hexagon
+ctx.beginPath()
+ctx.fillStyle = "#EBB000"
+ctx.moveTo(x + 40, y + 70)
+ctx.lineTo(x + 60, y + 40)
+ctx.lineTo(x + 90, y + 40)
+ctx.lineTo(x + 110, y + 70)
+ctx.lineTo(x + 90, y + 100)
+ctx.lineTo(x + 60, y + 100)
+ctx.closePath()
 ctx.fill()
-ctx.stroke()
- 
+
+# Draw green diamond
 ctx.beginPath()
-ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "#FF4500"  # OrangeRed
+ctx.fillStyle = "#2CB05F"
+ctx.moveTo(x + 130, y + 70)
+ctx.lineTo(x + 150, y + 40)
+ctx.lineTo(x + 170, y + 70)
+ctx.lineTo(x + 150, y + 100)
+ctx.closePath()
 ctx.fill()
-ctx.stroke()
- 
+
+# Draw blue triangle (vertex on the right side of the diamond, facing down)
 ctx.beginPath()
-ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "#32CD32"  # LimeGreen
+ctx.fillStyle = "#73B7FF"
+ctx.moveTo(x + 174, y + 70)  # Vertex on the right side of the diamond
+ctx.lineTo(x + 154, y + 100)  # Left bottom corner
+ctx.lineTo(x + 194, y + 100)  # Right bottom corner
+ctx.closePath()
 ctx.fill()
-ctx.stroke()
- 
+
+# Draw pink circle
 ctx.beginPath()
-ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "#FFFFE0"  # LightYellow
+ctx.fillStyle = "#FF458C"
+ctx.arc(x + 220, y + 70, 20, 0, 2 * 3.14159)
 ctx.fill()
-ctx.stroke()
- 
-# 第二個圓
+
+# Draw yellow square
 ctx.beginPath()
-ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "#9400D3"  # DarkViolet
+ctx.fillStyle = "#EBDF00"
+ctx.rect(x + 260, y + 43, 40, 40)
 ctx.fill()
-ctx.stroke()
- 
+
+# Draw blue rectangle
 ctx.beginPath()
-ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "#808000"  # Olive
+ctx.fillStyle = "#004A99"
+ctx.rect(x + 320, y + 53, 60, 20)
 ctx.fill()
-ctx.stroke()
- 
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "#FFA07A"  # LightSalmon
-ctx.fill()
-ctx.stroke()
- 
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "#FF1493"  # DeepPink
-ctx.fill()
-ctx.stroke()
- 
-# 紅方形 *2（4個三角形）
-ctx.strokeStyle = 'red'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(60, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "#FFD700"  # Gold
-ctx.fill()
-ctx.stroke()
- 
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 60)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "#4B0082"  # Indigo
-ctx.fill()
-ctx.stroke()
- 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(360, 160)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "#4682B4"  # SteelBlue
-ctx.fill()
-ctx.stroke()
- 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 360)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "#ADFF2F"  # GreenYellow
-ctx.fill()
-ctx.stroke()
- 
-# 重疊的小方形
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "#1E90FF"  # DodgerBlue
-ctx.fill()
-ctx.stroke()
- 
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(260, 160)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "#6A5ACD"  # SlateBlue
-ctx.fill()
-ctx.stroke()
- 
-# 藍斜線
-ctx.strokeStyle = 'blue'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 260)
-ctx.stroke()
 </script>
-</p><h1>HW 2</h1>
+</p>
+<h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
@@ -1048,6 +1037,9 @@ ctx.stroke()
 <h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
+<h3>w16_exam1</h3>
+<p><span>以</span><span>自己的學號最後四碼</span><span>作為繪圖的座標原點, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖座標原點), 並以 pixel=2 的黑色直線分別利用 Brython 繪圖, 標示出向右為正的 X 軸, 以及向下為正的 Y 軸, 並且利用文字標示出原點座標 (例如: (39, 32)), 之後請自選最左側圖形的起始點座標, 直接在頁面畫出下列圖像</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323101/content/Brython.html?src=https://gist.githubusercontent.com/41323101/07e016b805f53e26a155e7fc3c60a77b/raw/24fdbc0a96f8b7f0cdd0d00d70688c28fb69d963/w16_exam1">程式</a></p>
 <h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
@@ -1329,3 +1321,4 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
 </p>
+</div>
