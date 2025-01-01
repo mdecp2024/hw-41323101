@@ -157,7 +157,87 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
 </p>
-<div id="brython_div1"></div>
+<div id="brython_div1">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=300, height=300) # 設定迷宮畫布大小
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+# 取得 canvas 的繪圖上下文
+ctx = canvas.getContext("2d")
+
+# 標示左上方點座標 (31, 1)
+ctx.font = "12px Arial"
+ctx.fillStyle = "red"
+ctx.fillText("(31, 1)", 35, 14)
+
+# 定義藍色線條的屬性
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+
+# 開始繪製迷宮 (座標偏移以 (31, 1) 為起點)
+offset_x = 31
+offset_y = 1
+
+# 繪製迷宮線條
+ctx.beginPath()
+ctx.moveTo(offset_x + 0, offset_y + 0)
+ctx.lineTo(offset_x + 86, offset_y + 0)
+ctx.moveTo(offset_x + 0, offset_y + 0)
+ctx.lineTo(offset_x + 0, offset_y + 200)
+ctx.moveTo(offset_x + 120, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 0)
+ctx.moveTo(offset_x + 200, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 200)
+ctx.lineTo(offset_x + 120, offset_y + 200)
+ctx.moveTo(offset_x + 200, offset_y + 200)
+ctx.moveTo(offset_x + 0, offset_y + 200)
+ctx.lineTo(offset_x + 86, offset_y + 200)
+ctx.moveTo(offset_x + 86, offset_y + 157)
+ctx.lineTo(offset_x + 86, offset_y + 200)
+ctx.moveTo(offset_x + 86, offset_y + 157)
+ctx.lineTo(offset_x + 126, offset_y + 157)
+ctx.moveTo(offset_x + 160, offset_y + 120)
+ctx.lineTo(offset_x + 160, offset_y + 200)
+ctx.moveTo(offset_x + 160, offset_y + 120)
+ctx.lineTo(offset_x + 50, offset_y + 120)
+ctx.moveTo(offset_x + 50, offset_y + 120)
+ctx.lineTo(offset_x + 50, offset_y + 163)
+ctx.moveTo(offset_x + 126, offset_y + 80)
+ctx.lineTo(offset_x + 126, offset_y + 120)
+ctx.moveTo(offset_x + 0, offset_y + 80)
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 86, offset_y + 40)
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 40, offset_y + 40)
+ctx.lineTo(offset_x + 160, offset_y + 40)
+ctx.moveTo(offset_x + 160, offset_y + 40)
+ctx.lineTo(offset_x + 160, offset_y + 83)
+ctx.stroke()</pre>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src='//www.youtube.com/embed/nakfYohsEfs?si=xWH57eJQ8qpfJNXx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;' width="560"></iframe></p>
+<p><strong>心得</strong></p>
+<ul>
+<li>
+<p><strong>畫布設置</strong></p>
+<ul>
+<li><strong>尺寸</strong>：使用 <code>html.CANVAS</code> 設定畫布大小為 300x300，提供足夠的空間繪製迷宮。</li>
+<li><strong>偏移量</strong>：將迷宮的原點座標設置在 <code>(31, 1)</code>，方便繪製不同的線段。</li>
+</ul>
+</li>
+<li>
+<p><strong>迷宮繪製</strong></p>
+<ul>
+<li><strong>線條屬性</strong>：設定線條為藍色，寬度為 2，清晰顯示迷宮的邊界和內部路徑。</li>
+<li><strong>幾何結構</strong>：透過 <code>moveTo</code> 和 <code>lineTo</code> 方法分段繪製迷宮，展現出入口、出口以及多個連接的通道。</li>
+<li><strong>標示座標</strong>：在畫布左上角標示 <code>(31, 1)</code>，提供參考點，幫助理解迷宮的起始位置。</li>
+</ul>
+</li>
+</ul>
+<p></p>
+</div>
 <p>
 <script type="text/python3">
 from browser import html
